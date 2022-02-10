@@ -1,4 +1,4 @@
-# smart phone
+# README for smart phone data and code
 
 
 Smartphone-Based Recognition of Human Activities and Postural Transitions Data Set
