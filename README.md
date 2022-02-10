@@ -50,7 +50,7 @@ When 'Save.Files = 1':
 Line 896-899 / 1011-1014 / 1075-1078 / 1282-1283 / 1297-1298 / 1732-1734 / 1830-1831: set pathway and filename
 
 
-Line 44 / 52:
+Line 41 / 49:
 Set path where file located
 
 
