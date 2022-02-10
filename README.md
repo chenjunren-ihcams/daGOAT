@@ -28,7 +28,11 @@ Line 32: please set 'CV.Top.Keys = 0'
 Line 35: 'HO.Top.Keys = 1' to get the association between the number of top N keys and daGOAT's performance in holdout cohort
 
 Line 37: 'Save.Files = 1' to save results to local machine. 
+When 'Save.Files = 1'
+Line 896-899 / 1011-1014 / 1075-1078 / 1282-1283 / 1297-1298 / 1732-1734 / 1830-1831: set pathway and filename
 
+Line 44 / 52:
+Set path where file located
 
 With all hyper parameters defined, you are all set to go. Just run the whole script. 
 
