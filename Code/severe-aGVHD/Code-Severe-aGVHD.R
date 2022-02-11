@@ -16,7 +16,7 @@ library(PRROC)
 
 
 # Define hyper parameters
-population <- 1
+population <- 0
 engraftment.aware <- 0
 
 start.t <- 1
@@ -34,11 +34,11 @@ CV.Top.Keys <- 0
 HO <- 1
 HO.Top.Keys <- 0
 
-Save.Files <- 0
+Save.Files <- 1
 
 if (population){
     peak.t <- 23
-    root <- ''
+    root <- 'pediatric-demo/'
     ntree <- 20
     mtry <- 10
     keys.file <- paste(root, 'keys.csv', sep = "")
@@ -46,7 +46,7 @@ if (population){
     nfold <- 8
 } else{
     peak.t <- 10
-    root <- ''
+    root <- 'pediatric-demo/'
     ntree <- 10
     mtry <- 10
     keys.file <- paste(root, 'keys.csv', sep = "")
@@ -893,9 +893,9 @@ if(CV){
                                    'RF.ID', 'RF.label', 'RF.pred', 'RF.fold',
                                    'XGB.ID', 'XGB.label', 'XGB.pred', 'XGB.fold')
     
-    write.csv(rbind(auc.cv, prc.cv), '')
-    write.csv(rbind(auc.cv.mean, prc.cv.mean), '')
-    write.csv(peak.label.pred, '')
+    write.csv(rbind(auc.cv, prc.cv), paste(root,'auc_prc_cv.csv', sep = ""))
+    write.csv(rbind(auc.cv.mean, prc.cv.mean), paste(root,'auc_prc_cv_mean.csv', sep = ""))
+    write.csv(peak.label.pred, paste(root,'peak_cv.csv', sep = ""))
   }
   
   
@@ -1008,10 +1008,10 @@ if(CV.Training.Size){
                           colMeans(prc.ts[1:nfold + 4 * nfold, ], na.rm=T)
     )
     
-    write.csv(auc.ts, '')
-    write.csv(prc.ts, '')
-    write.csv(auc.ts.mean, '')
-    write.csv(prc.ts.mean, '')
+    write.csv(auc.ts, paste(root,'auc_ts.csv', sep = ""))
+    write.csv(prc.ts, paste(root,'prc_ts.csv', sep = ""))
+    write.csv(auc.ts.mean, paste(root,'auc_ts_mean.csv', sep = ""))
+    write.csv(prc.ts.mean, paste(root,'prc_ts_mean.csv', sep = ""))
   }
   
   
@@ -1093,8 +1093,8 @@ if(CV.Key.Importance){
     }
     
     if(Save.Files){
-      write.csv(auc.keys, '')
-      write.csv(prc.keys, '')
+      write.csv(auc.keys, paste(root,'auc_TOP.csv', sep = ""))
+      write.csv(prc.keys, paste(root,'prc_TOP.csv', sep = ""))
     }
     
   }
@@ -1173,8 +1173,8 @@ if(CV.Key.Importance){
   }
   
   if(Save.Files){
-    write.csv(auc.stationary.free, '')
-    write.csv(prc.stationary.free, '')
+    write.csv(auc.stationary.free, paste(root,'auc_no_smooth.csv', sep = ""))
+    write.csv(prc.stationary.free, paste(root,'prc_no_smooth.csv', sep = ""))
   }
   
   
@@ -1729,9 +1729,9 @@ if(HO){
                                    'RF.ID', 'RF.label', 'RF.pred', 
                                    'XGB.ID', 'XGB.label', 'XGB.pred')
     
-    write.csv(rbind(AUC, PRC), '') 
+    write.csv(rbind(AUC, PRC), paste(root,'auc_prc_ho.csv', sep = "")) 
     
-    write.csv(peak.label.pred, '') 
+    write.csv(peak.label.pred, paste(root,'peak_ho.csv', sep = "")) 
     
     
   }
@@ -1827,8 +1827,8 @@ if(HO.Top.Keys){
   
   if(Save.Files){
   
-    write.csv(auc.topkey, '')
-    write.csv(prc.topkey, '')
+    write.csv(auc.topkey, paste(root,'auc_top_keys.csv', sep = ""))
+    write.csv(prc.topkey, paste(root,'prc_top_keys.csv', sep = ""))
     
   }
   
