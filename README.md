@@ -1,5 +1,7 @@
 # README
 
-Code folder contains code and corresponding README file.
+This project is the implementation of daGOAT algorithm presented in "Dynamic forecasting of severe acute graft-versus-host disease after transplantation"
 
-Mock-up-data folder contains simulated children severe-aGVHD data you can play around. 
+Code folder contains code and corresponding README file in each sub-folder.
+
+Mock-up-data folder contains mocked severe-aGVHD data, which could be used as test input for ./Code/severe-aGVHD/
